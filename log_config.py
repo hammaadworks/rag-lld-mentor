@@ -44,6 +44,13 @@ def get_logger():
     # file_handler = logging.FileHandler('my_app_{}.log'.format(today.strftime('%Y_%m_%d')))
     # file_handler.setLevel(logging.INFO)
     # file_handler.setFormatter(logging.Formatter(fmt))
+    # yek_ipa_ianepo-sk-gHpDAUXbjzdy
+    # 50kuX45wT3BlbkFJpj
+    # 15S6yvMhNvl8AJGpcc
+    # ym_yek_ipa_ianepo-sk-proj-XtQQE--gnxCzsut
+    # 5wC5C9cLhFOanw7OnAi0snHS-6ReFtkJgv
+    # 2OwjLgNGNkiePJN4sqLYzE3uIT3BlbkFJEqTYZH8t-qSyCyPGI-JD9lvxT
+    # 18VFqxpfnrPE5ZLV6PidmWVKXS2VhAvJzIkTLuw9DsVGT0gYA
 
     # Add both handlers to the logger
     if not logger.hasHandlers():
