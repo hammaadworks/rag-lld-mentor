@@ -1,0 +1,10 @@
+.env
+.idea
+.langchain.db
+/myvenv/*
+/.ipynb_checkpoints/*
+*/__pycache__/*
+/__pycache__/*
+venv
+analytics
+scraped_data/*
