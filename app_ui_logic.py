@@ -58,7 +58,7 @@ def init_app_session_state(page_component):
             page_component.session_state.answers = []
 
         if 'llm_chain' not in st.session_state:
-            page_component.session_state['llm_chain'] = build_chain()[0]
+            page_component.session_state['llm_chain'] = build_chain()
 
 
 def clear_chat():
@@ -86,8 +86,8 @@ def write_top_bar(page_component):
     """Display top bar of the chat interface."""
     log.info("Inside write_top_bar()")
     _, col_1, col_2, col_3 = page_component.columns([1, 2, 6, 4])
-    col_1.image(AI_ICON, use_column_width='always')
-    col_2.header = "CS Agent Assistant"
+    col_1.image(AI_ICON, use_container_width='always')
+    col_2.header = "Hammaad's LLD Agent"
     col_2.write(f"<h1 class='main-header'>{col_2.header}</h1>", unsafe_allow_html=True)
     col_2.caption(f"You are logged in as **{st.session_state.name}**. Refresh to Logout.")
     col_3.button("Logout User", on_click=refresh_page, type="primary")
@@ -98,7 +98,7 @@ def write_user_message(question_string, page_component):
     """Display user's message."""
     log.info(f"Inside write_user_message: {question_string=}")
     col_1, col_2 = page_component.columns([1, 12])
-    col_1.image(USER_ICON, use_column_width='always')
+    col_1.image(USER_ICON, use_container_width='always')
     col_2.warning(question_string)
 
 
@@ -106,21 +106,21 @@ def render_answer(answer_string, page_component):
     """Render assistant's answer."""
     log.info(f"Inside render_answer: {answer_string=}")
     col_1, col_2 = page_component.columns([1, 12])
-    col_1.image(AI_ICON, use_column_width='always')
+    col_1.image(AI_ICON, use_container_width='always')
     col_2.write(answer_string)
 
 
 def render_stream_tool(write_stream, page_component):
     """Render stream of tool responses."""
     col_1, col_2 = page_component.columns([1, 12])
-    col_1.image(AI_ICON, use_column_width='always')
+    col_1.image(AI_ICON, use_container_width='always')
     col_2.write_stream(chunk.content for chunk in write_stream)
 
 
 def render_stream(write_stream, page_component):
     """Render stream of responses."""
     col_1, col_2 = page_component.columns([1, 12])
-    col_1.image(AI_ICON, use_column_width='always')
+    col_1.image(AI_ICON, use_container_width='always')
     col_2.write_stream(chunk.get('answer').content for chunk in write_stream if 'answer' in chunk)
 
 
@@ -257,7 +257,7 @@ def send_reset_code_email(user_email):
 
 
 def render_login_page(main_page_component):
-    st.title("🔐 CSGPT Login Page")
+    st.title("🔐 Hammaad RAG Login Page")
     with st.form(key='login_form'):
         user_email = st.text_input(EMAIL_ID)
         user_password = st.text_input("Password", type='password')

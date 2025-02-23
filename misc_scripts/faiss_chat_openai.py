@@ -21,7 +21,8 @@ from langchain_core.runnables import (
 from langchain_openai.chat_models import ChatOpenAI
 
 from constants.constants import (EMBEDDING_MODEL, FAISS_STORE, STANDALONE_PROMPT_TEMPLATE, GPT_3_5_TURBO, GPT_4)
-
+from dotenv import load_dotenv
+load_dotenv()
 
 def chat_completion_request(input_prompt):
     model = GPT_4
@@ -99,7 +100,7 @@ def build_chain():
 
     final_chain = loaded_memory | standalone_question | retrieved_documents | answer
 
-    return final_chain, memory
+    return final_chain
 
 
 def run_chain(chain, prompt: str):

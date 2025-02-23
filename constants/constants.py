@@ -15,7 +15,7 @@ DEL_TAGS = [('section', 'site-slide-menu'), ('section', 'product__login-notice-b
 SOUP_HTML_PARSER = "html.parser"
 CHUNK_SIZE = 3000
 CHUNK_OVERLAP = 50
-FAISS_STORE = 'vectorstore/faiss_store'
+FAISS_STORE = "./vectorstore/faiss_store"
 EMBEDDING_MODEL_MINI_LM = 'sentence-transformers/all-MiniLM-L6-v2'
 EMBEDDING_MODEL_BGE_LARGE = 'BAAI/bge-large-en-v1.5'
 EMBEDDING_MODEL = 'BAAI/bge-small-en-v1.5'
@@ -59,6 +59,7 @@ CREATE_CHAT_TABLE_SQL = ('''CREATE TABLE IF NOT EXISTS chat_history (
                                 );''')
 
 DEFAULT_LOGIN_TABLE_SQL = ('''INSERT OR IGNORE INTO login_details (email, name, password) VALUES
+                                ('hammaadworks@gmail.com', 'Mohammed Hammaad Abdul Mateen', 'P@ss_123'),
                                 ('myfriendhammad@gmail.com', 'Mohammed Hammaad Abdul Mateen', 'P@ss_123'),
                                 ('test_user@hammaad.com', 'Test User', 'P@ss_123');
                             ''')
